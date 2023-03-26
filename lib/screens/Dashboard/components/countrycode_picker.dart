@@ -4,7 +4,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:direct_me/Provider/country_provider.dart';
+import 'package:direct_me/Provider/app_provider.dart';
 import 'package:direct_me/screens/Dashboard/strings.dart';
 
 class CountryPicker extends StatelessWidget {
@@ -24,8 +24,8 @@ class CountryPicker extends StatelessWidget {
           //Optional. Shows phone code before the country name.
           showPhoneCode: true,
           onSelect: (Country country) {
-            context.read<CountryProvider>().setPhoneCode(country.phoneCode);
-            context.read<CountryProvider>().setCountryCode(country.countryCode);
+            context.read<CustomProvider>().setPhoneCode(country.phoneCode);
+            context.read<CustomProvider>().setCountryCode(country.countryCode);
           },
           // Optional. Sets the theme for the country list picker.
           countryListTheme: CountryListThemeData(
@@ -57,7 +57,7 @@ class CountryPicker extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            context.watch<CountryProvider>().countryCode,
+            context.watch<CustomProvider>().countryCode,
             style: GoogleFonts.poppins(
               fontSize: 14,
             ),
@@ -66,7 +66,7 @@ class CountryPicker extends StatelessWidget {
             width: 5,
           ),
           Text(
-            '+${context.watch<CountryProvider>().phoneCode}',
+            '+${context.watch<CustomProvider>().phoneCode}',
             style: const TextStyle(fontSize: 14),
           ),
         ],

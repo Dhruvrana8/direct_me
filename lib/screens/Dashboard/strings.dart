@@ -5,4 +5,5 @@ class STRINGS {
   static const SEARCH = "Search";
   static const SELECT_THE_COUNTRY = 'Select the country';
   static const SEND = "Send";
+  static const ADD_TEXT = "Add Text";
 }

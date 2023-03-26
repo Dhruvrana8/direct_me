@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../strings.dart';
 
-import 'package:direct_me/Provider/country_provider.dart';
+import 'package:direct_me/Provider/app_provider.dart';
 
 class InputNumber extends StatelessWidget {
   const InputNumber({super.key});
@@ -14,9 +14,9 @@ class InputNumber extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.4,
       child: TextFormField(
         onChanged: (phoneNumber) {
-          context.read<CountryProvider>().setPhoneNumber(phoneNumber);
+          context.read<CustomProvider>().setPhoneNumber(phoneNumber);
         },
-        controller: context.read<CountryProvider>().myController,
+        controller: context.read<CustomProvider>().myController,
         keyboardType: TextInputType.number,
         autofocus: true,
         decoration: InputDecoration(

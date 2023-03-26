@@ -2,11 +2,13 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 
-class CountryProvider extends ChangeNotifier {
+class CustomProvider extends ChangeNotifier {
   final _myController = TextEditingController();
+
   String _phoneCode = '91';
   String _countryCode = 'IN';
   String _phoneNumber = '';
+  bool _textInput = false;
 
   //Getter
   String get countryCode => _countryCode;
@@ -14,10 +16,16 @@ class CountryProvider extends ChangeNotifier {
   String get phoneNumber => _phoneNumber;
   bool get canSend => _phoneNumber.length >= 10;
   TextEditingController get myController => _myController;
+  bool get textInput => _textInput;
 
   //Setter
   void setPhoneCode(String phoneCode) {
     _phoneCode = phoneCode;
+    notifyListeners();
+  }
+
+  void setToggleTextInput() {
+    _textInput = !_textInput;
     notifyListeners();
   }
 
